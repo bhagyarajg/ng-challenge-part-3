@@ -1,1 +1,24 @@
-<h1>Your Solution Here</h1>
+<h1>Solution to Part - 3 here</h1>
+<table class=" table row-border hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Memory Allocation</th>
+            <th scope="col">Status</th>
+            <th scope="col">Enabled</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let faasInfo of faasInfoById" [ngClass]="{'red': redAlert(faasInfo.memoryAllocation * faasInfo.usage.instances) ,'amber': amberAlert(faasInfo.memoryAllocation * faasInfo.usage.instances)}">
+            <td> {{faasInfo.id}}</td>
+            <td>{{faasInfo.name}}</td>
+            <td>{{faasInfo.description}}</td>
+            <td>{{faasInfo.memoryAllocation * faasInfo.usage.instances | vmwMemoryFormat}}</td>
+            <td>{{faasInfo.usage.state}}</td>
+            <td>Enabled</td>
+        </tr>
+    </tbody>
+</table>
