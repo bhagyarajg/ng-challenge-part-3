@@ -1,4 +1,5 @@
 <h1>Solution to Part - 3 here</h1>
+<h2>Enabled Serve App Functions</h2>
 <table class=" table row-border hover">
     <thead>
         <tr>
@@ -6,19 +7,53 @@
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Memory Allocation</th>
+            <th scope="col">Monthly Cost(In USD)</th>
             <th scope="col">Status</th>
             <th scope="col">Enabled</th>
 
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let faasInfo of faasInfoById" [ngClass]="{'red': redAlert(faasInfo.memoryAllocation * faasInfo.usage.instances) ,'amber': amberAlert(faasInfo.memoryAllocation * faasInfo.usage.instances)}">
+        <tr *ngFor="let faasInfo of faasInfoById" [ngClass]="{'red': redAlert(faasInfo.totalMemory),'amber': amberAlert(faasInfo.totalMemory)}">
             <td> {{faasInfo.id}}</td>
             <td>{{faasInfo.name}}</td>
             <td>{{faasInfo.description}}</td>
-            <td>{{faasInfo.memoryAllocation * faasInfo.usage.instances | vmwMemoryFormat}}</td>
-            <td>{{faasInfo.usage.state}}</td>
-            <td>Enabled</td>
+            <td>{{faasInfo.totalMemory | vmwMemoryFormat}}</td>
+            <td>{{faasInfo.totalMonthlyCost | number:'1.2-2'}}</td>
+            <td>{{faasInfo.status}}</td>
+            <td><button class="btn btn-sm" (click)="toggleStatus(faasInfo.id,faasInfo.enabled)">
+                    {{ faasInfo.enabled ? 'Disable' : 'Enable'}}
+                </button></td>
+        </tr>
+    </tbody>
+</table>
+<h2>Disabled Serve App Functions</h2>
+<table class=" table row-border hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Memory Allocation</th>
+            <th scope="col">Monthly Cost(In USD)</th>
+            <th scope="col">Status</th>
+            <th scope="col">Disabled</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let faasInfo of faasInfoById" [ngClass]="{'red': redAlert(faasInfo.totalMemory),'amber': amberAlert(faasInfo.totalMemory)}">
+            <td> {{faasInfo.id}}</td>
+            <td>{{faasInfo.name}}</td>
+            <td>{{faasInfo.description}}</td>
+            <td>{{faasInfo.totalMemory | vmwMemoryFormat}}</td>
+            <td>{{faasInfo.totalMonthlyCost | number:'1.2-2'}}</td>
+            <td>{{faasInfo.status}}</td>
+            <td>
+                <button class="btn btn-sm" (click)="toggleStatus(faasInfo.id,faasInfo.enabled)">
+                    {{ !faasInfo.enabled ? 'Disable' : 'Enable'}}
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>
