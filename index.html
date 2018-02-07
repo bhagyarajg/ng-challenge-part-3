@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <!-- We should include the following line, but Hackerrank barfs if we do. -->
+   <!-- <base href="/"> -->
+   <title>VMware ng-challenge Question 1</title>
+   <meta charset="UTF-8">
+   <meta name="viewport"
+         content="width=device-width, initial-scale=1">
+   <link rel="stylesheet"
+         href="https://unpkg.com/clarity-ui@0.8.12/clarity-ui.min.css" />
+   <link rel="stylesheet"
+         href="https://unpkg.com/clarity-icons@0.8.12/clarity-icons.min.css" />
+
+   <!-- Polyfills for older browsers -->
+   <script src="https://unpkg.com/core-js@2.4.1/client/shim.min.js"></script>
+   <script src="https://unpkg.com/zone.js@0.8.4?main=browser"></script>
+   <script src="https://unpkg.com/reflect-metadata@0.1.8"></script>
+   <script src="https://unpkg.com/systemjs@0.19.39/dist/system.src.js"></script>
+   <!-- Clarity global dependencies -->
+   <script src="https://unpkg.com/@webcomponents/custom-elements@1.0.0-alpha.3/custom-elements.min.js"></script>
+   <script src="https://unpkg.com/clarity-icons@0.8.12/clarity-icons.min.js"></script>
+
+   <script src="surfIcon.js"></script>
+
+   <script src="config.js"></script>
+   <script>
+      System.import('app').catch(function (err) { console.error(err); });
+   </script>
+</head>
+
+<body>
+   <my-app>
+      <div style="width: 100vh; height: 100vh;">
+         <div class="spinner"
+              style="top: 0; bottom: 0; left: 0; right: 0; position: absolute; margin: auto;">
+         </div>
+      </div>
+   </my-app>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+{
+   "editor.tabSize": 3,
+   "editor.rulers": [
+      89
+   ],
+   "editor.formatOnSave": true,
+   "diffEditor.ignoreTrimWhitespace": false,
+   "files.trimTrailingWhitespace": true,
+   "explorer.autoReveal": false,
+   "explorer.enableDragAndDrop": false,
+   "tslint.autoFixOnSave": true,
+   "html.format.wrapAttributes": "force-aligned",
+   "html.format.enable": true,
+   "editor.wrappingIndent": "none"
+}
